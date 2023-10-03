@@ -1,0 +1,37 @@
+html {
+    height: 100vh;
+    margin: 0px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 50px;
+    margin: 0px;
+}
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: auto;
+    flex-wrap: wrap;
+    width: 800px;
+    height: 800px;
+}
+
+.grid-item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    width: 50px;
+    height: 50px;
+}
+.grid-item:hover {
+    background-color: darkgray;
+}
+
+.page-button {
+    width: fit-content;
+}
