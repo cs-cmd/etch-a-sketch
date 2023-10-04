@@ -39,9 +39,10 @@ function clear_canvas() {
     })
 }
 function reset_canvas() {
-    main_grid.getElementsByClassName("grid-item").array.forEach(element => {
+    let children = Array.from(main_grid.getElementsByClassName("grid-item"));
+
+    children.forEach(element => {
         change_background(element, "white");
-        console.log("help");
     });
 }
 
