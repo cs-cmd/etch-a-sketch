@@ -69,8 +69,7 @@ function init_buttons() {
 }
 
 function change_background(grid, color) {
-    grid.style.background = color; 
-    console.log(window.getComputedStyle(grid, ':hover'));
+    grid.style.backgroundColor = color; 
 }
 
 function get_new_size() {
