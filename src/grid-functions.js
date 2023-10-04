@@ -19,6 +19,11 @@ function init_canvas(size) {
         grid_item.addEventListener("click", function(e) {
             change_background(e.target, "red");
         });
+        grid_item.addEventListener("mouseover", e => {
+            if(e.buttons === 1) {
+                change_background(e.target, "red");
+            }
+        })
         main_grid.appendChild(grid_item);
     }
 }
