@@ -1,8 +1,8 @@
 // global variables for grid, clear button, and change size button
-let main_grid = document.querySelector(".grid-container");
+let main_grid = document.getElementById("main-grid");
 let clearCanvasButton = document.getElementById("reset-button");
 let changeSizeButton = document.getElementById("change-size-button");
-
+let changeSizeInput = document.getElementById("new-size-input");
 // on script load, initialize canvas and buttons
 init_canvas(16);
 init_buttons();
@@ -12,16 +12,17 @@ function init_canvas(size) {
     // total size is size*size (square)
     let totalSize = size**2;
 
+    let gridStyle = getComputedStyle(main_grid);
+
     // the width/height of the grid-items should be the height of the main grid divided by the 
     // number of items per row/col
-    let width_height = main_grid.clientHeight/size;
-    
+    let width_height = parseInt(gridStyle.getPropertyValue("width"))/size;
+
     // put basic info about node in origin
     let originNode = document.createElement("div");
     originNode.setAttribute("class", "grid-item");
     originNode.style.height = `${width_height}px`;
     originNode.style.width = `${width_height}px`;
-
 
     // for 0 to totalSize (size*size), add a div (grid item) element with specified height
     // and width, and mouseover event for 
@@ -31,7 +32,6 @@ function init_canvas(size) {
         // listeners are not included in cloning, must add before adding
         // to document
         clone.addEventListener("mouseover", e => {
-            console.log("help");
             if(e.buttons !== 0) {
                 change_background(e.target, "red");
             }
@@ -40,6 +40,7 @@ function init_canvas(size) {
     }
 }
 
+// converts nodes to array and clears them from main grid
 function clear_canvas() {
     let nodes = Array.from(main_grid.getElementsByClassName("grid-item"));
     if (nodes === null || nodes.length === 0) {
@@ -90,5 +91,5 @@ function change_background(grid, color) {
 }
 
 function get_new_size() {
-    return prompt("Enter number of columns (less than or equal to 100)", 16);
+    return changeSizeInput.value;
 }

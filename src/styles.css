@@ -1,7 +1,9 @@
 html {
     height: 100vh;
     margin: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -34,4 +36,13 @@ body {
 
 .page-button {
     width: fit-content;
+}
+
+.page-button {
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: aquamarine;
+    font-size: 25px;
 }
