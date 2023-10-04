@@ -1,27 +1,42 @@
+// global variables for grid, clear button, and change size button
 let main_grid = document.querySelector(".grid-container");
 let clearCanvasButton = document.getElementById("reset-button");
 let changeSizeButton = document.getElementById("change-size-button");
 
-
+// on script load, initialize canvas and buttons
 init_canvas(16);
 init_buttons();
 
+// initializes the canvas and grid items
 function init_canvas(size) {
+    // total size is size*size (square)
     let totalSize = size**2;
 
+    // the width/height of the grid-items should be the height of the main grid divided by the 
+    // number of items per row/col
     let width_height = main_grid.clientHeight/size;
     
+    // put basic info about node in origin
+    let originNode = document.createElement("div");
+    originNode.setAttribute("class", "grid-item");
+    originNode.style.height = `${width_height}px`;
+    originNode.style.width = `${width_height}px`;
+
+
+    // for 0 to totalSize (size*size), add a div (grid item) element with specified height
+    // and width, and mouseover event for 
     for (let i = 0; i < totalSize; ++i) {
-        let grid_item = document.createElement("div");
-        grid_item.setAttribute("class", "grid-item");
-        grid_item.style.height = `${width_height}px`;
-        grid_item.style.width = `${width_height}px`;
-        grid_item.addEventListener("mouseover", e => {
+        // clone node and add listeners before adding to main grid
+        let clone = originNode.cloneNode(true);
+        // listeners are not included in cloning, must add before adding
+        // to document
+        clone.addEventListener("mouseover", e => {
+            console.log("help");
             if(e.buttons !== 0) {
                 change_background(e.target, "red");
             }
-        })
-        main_grid.appendChild(grid_item);
+        });
+        main_grid.appendChild(clone);
     }
 }
 
