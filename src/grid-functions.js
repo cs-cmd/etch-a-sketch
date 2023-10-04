@@ -16,11 +16,8 @@ function init_canvas(size) {
         grid_item.setAttribute("class", "grid-item");
         grid_item.style.height = `${width_height}px`;
         grid_item.style.width = `${width_height}px`;
-        grid_item.addEventListener("click", function(e) {
-            change_background(e.target, "red");
-        });
         grid_item.addEventListener("mouseover", e => {
-            if(e.buttons === 1) {
+            if(e.buttons !== 0) {
                 change_background(e.target, "red");
             }
         })
