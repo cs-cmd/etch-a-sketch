@@ -3,6 +3,14 @@ let main_grid = document.getElementById("main-grid");
 let clearCanvasButton = document.getElementById("reset-button");
 let changeSizeButton = document.getElementById("change-size-button");
 let changeSizeInput = document.getElementById("new-size-input");
+let paintColor = "red";
+
+// does the work of actually painting to the canvas
+let paintFunc = function(event) {
+    if(event.buttons !== 0) {
+        change_background(event.target, paintColor);
+    }
+}
 // on script load, initialize canvas and buttons
 init_canvas(16);
 init_buttons();
@@ -31,11 +39,8 @@ function init_canvas(size) {
         let clone = originNode.cloneNode(true);
         // listeners are not included in cloning, must add before adding
         // to document
-        clone.addEventListener("mouseover", e => {
-            if(e.buttons !== 0) {
-                change_background(e.target, "red");
-            }
-        });
+        clone.addEventListener("mousedown", e => { paintFunc(e) });
+        clone.addEventListener("mousemove", e => { paintFunc(e) });
         main_grid.appendChild(clone);
     }
 }
