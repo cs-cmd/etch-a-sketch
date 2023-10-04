@@ -52,6 +52,7 @@ function clear_canvas() {
         return;
     }
 
+    // remove child from grid, clearing the main grid out
     nodes.forEach(element => {
         main_grid.removeChild(element);
     });

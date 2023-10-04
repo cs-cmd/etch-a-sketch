@@ -1,0 +1,100 @@
+@import "/src/styles/noto-font-face.css";
+
+html {
+    height: 100vh;
+    margin: 0px;
+    font-family: 'Noto', 'Arial Narrow', Arial, sans-serif;
+    background-image: linear-gradient(160deg, #24DBCF, #248BDB 70%, #2430DB);
+}
+
+header {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+h3 {
+    font-style: italic;
+    margin-top: 0px;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0px;
+    gap: 70px;
+}
+
+#main-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    width: 800px;
+    height: 800px;
+    background-color: darkgray;
+}
+
+#change-size-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-input {
+    font-size: 30px;
+    width: 200px;
+    text-align: center;
+    border-radius: 15px;
+    border: none;
+
+}
+.grid-item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    background-color: white;
+}
+
+.grid-item:hover {
+    opacity: .2;
+}
+
+.page-button {
+    width: fit-content;
+}
+
+.page-button {
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    background-color: aquamarine;
+    font-size: 25px;font-family: 'Noto', 'Arial Narrow', Arial, sans-serif;
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    height: 100px;
+}

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Noto";
+    src: url("../resources/fonts/NotoSansNKoUnjoined-Regular.ttf");
+}
+@font-face {
+    font-family: "Noto";
+    src: url("../resources/fonts/NotoSansNKoUnjoined-Bold.ttf");
+    font-weight: bold;
+}

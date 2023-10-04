@@ -3,16 +3,38 @@
     <head>
         <title>Etch-a-sketch</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="src/styles.css">
+        <link rel="stylesheet" href="src/styles/main-style.css">
 
     </head>
     <body>
-        <input class="grid-input" id="new-size-input">
-        <button class="page-button" id="change-size-button">Change size</button>
-        <div class="grid-container" id="main-grid"></div>
+        <header>
+            <h1>Etch-a-sketch!</h1>
+            <h3>Paint a bit on this nice canvas! :)</h3>
+        </header>
 
-        <button class="page-button" id="reset-button">Clear Canvas</button>
+        <div id="main-canvas">
+            <div id="color-selection">
+                <div class="color-selectors">
+                    
+                </div>
 
-        <script src="src/grid-functions.js"></script>
+                <button class="page-button" id="reset-button">Clear Canvas</button>
+            </div>
+
+
+
+            <div class="grid-container" id="main-grid"></div>
+
+            <div id="change-size-section">
+                <input class="grid-input" id="new-size-input">
+                <button class="page-button" id="change-size-button">Change size</button>
+            </div>
+
+            <script src="src/grid-functions.js"></script>
+        </div>
+
+        <footer>
+            hello!
+        </footer>
     </body>
 </html>
