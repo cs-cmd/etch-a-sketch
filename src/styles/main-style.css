@@ -47,6 +47,16 @@ body {
     gap: 35px;
 }
 
+#color-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.color-selectors {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 .grid-container {
     display: flex;
     flex-direction: column;
@@ -96,6 +106,13 @@ body {
     font-size: 25px;font-family: 'Noto', 'Arial Narrow', Arial, sans-serif;
 }
 
+.page-button:hover {
+    background-color: #2430DB;
+}
+
+.active-draw-button {
+    background-color: #2430db;
+}
 footer {
     width: 100%;
     background-color: black;

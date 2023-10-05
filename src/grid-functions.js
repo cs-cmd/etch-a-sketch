@@ -1,9 +1,38 @@
 // global variables for grid, clear button, and change size button
 let main_grid = document.getElementById("main-grid");
-let clearCanvasButton = document.getElementById("reset-button");
-let changeSizeButton = document.getElementById("change-size-button");
-let changeSizeInput = document.getElementById("new-size-input");
-let paintColor = "red";
+
+let lastActiveDrawingButton = null;
+
+let paintColor;
+
+function setDrawingButton(button) {
+    let buttonFunction = button.getAttribute('ro-function');
+
+    switch (buttonFunction) {
+        case "draw":
+            paintColor = "black";
+            break;
+        case "erase":
+            paintColor = "white";
+            break;
+    };
+
+    console.log('current button: ' + button);
+    console.log(lastActiveDrawingButton);
+    // if buttons are same, return, don't do anything
+    if (button == lastActiveDrawingButton) {
+        return;
+    }
+
+
+    button.classList.toggle('active-drawing-button');
+    if (lastActiveDrawingButton !== null) {
+        lastActiveDrawingButton.classList.toggle('active-draw-button');
+    }
+    lastActiveDrawingButton = button;
+} 
+
+
 
 // does the work of actually painting to the canvas
 let paintFunc = function(event) {
@@ -11,9 +40,6 @@ let paintFunc = function(event) {
         change_background(event.target, paintColor);
     }
 }
-// on script load, initialize canvas and buttons
-init_canvas(16);
-init_buttons();
 
 // initializes the canvas and grid items
 function init_canvas(size) {
@@ -85,11 +111,26 @@ function resize_canvas(size) {
 }
 
 function init_buttons() {
+    let clearCanvasButton = document.getElementById("reset-button");
+    let changeSizeButton = document.getElementById("change-size-button");
+
     clearCanvasButton.addEventListener("click", () => { reset_canvas() });
     changeSizeButton.addEventListener("click", function() { 
         let size = get_new_size();
         resize_canvas(size);
-    });    
+    }); 
+    
+    let drawButton = document.getElementById("pen-button");
+    let eraseButton = document.getElementById("eraser-button");
+
+    drawButton.classList.toggle("active-draw-button");
+    eraseButton.classList.toggle("active-draw-button");
+
+    drawButton.addEventListener("click", (e) => { setDrawingButton(e.target) });
+    eraseButton.addEventListener("click", (e) => { setDrawingButton(e.target) });
+
+    console.log('help');
+    setDrawingButton(drawButton);
 }
 
 function change_background(grid, color) {
@@ -97,5 +138,10 @@ function change_background(grid, color) {
 }
 
 function get_new_size() {
+    let changeSizeInput = document.getElementById("new-size-input");
     return changeSizeInput.value;
 }
+
+// Perform functions after declaring all
+init_canvas(16);
+init_buttons();
