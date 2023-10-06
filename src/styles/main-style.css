@@ -113,8 +113,11 @@ body {
 .active-draw-button {
     background-color: #2430db;
 }
+
 footer {
     width: 100%;
-    background-color: black;
     height: 100px;
+    text-align: center;
+    font-size: 25px;
+    color: #dbcf24;
 }
