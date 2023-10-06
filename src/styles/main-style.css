@@ -121,3 +121,10 @@ footer {
     font-size: 25px;
     color: #dbcf24;
 }
+
+.color-selection-item {
+    width: 200px;
+    height: 200px;
+    border: none;
+    background-color: transparent;
+}

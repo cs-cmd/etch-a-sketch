@@ -1,8 +1,8 @@
 // global variables for grid, clear button, and change size button
 let main_grid = document.getElementById("main-grid");
+let canvasColorPicker = document.getElementById("color-selection-item");
 
 let lastActiveDrawingButton = null;
-
 let paintColor;
 
 function setDrawingButton(button) {
@@ -10,7 +10,7 @@ function setDrawingButton(button) {
 
     switch (buttonFunction) {
         case "draw":
-            paintColor = "black";
+            paintColor = canvasColorPicker.value;
             break;
         case "erase":
             paintColor = "white";
@@ -139,6 +139,10 @@ function get_new_size() {
     return changeSizeInput.value;
 }
 
-// Perform functions after declaring all
+// Perform setup functions after declaring all
 init_canvas(16);
+canvasColorPicker.value = "#000000";
+canvasColorPicker.addEventListener("input", (e) => {
+    paintColor = e.target.value;
+})
 init_buttons();
