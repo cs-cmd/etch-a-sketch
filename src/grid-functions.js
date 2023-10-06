@@ -17,15 +17,13 @@ function setDrawingButton(button) {
             break;
     };
 
-    console.log('current button: ' + button);
-    console.log(lastActiveDrawingButton);
     // if buttons are same, return, don't do anything
-    if (button == lastActiveDrawingButton) {
+    if (button === lastActiveDrawingButton) {
+        console.log("Buttons are the same; returning...");
         return;
     }
 
-
-    button.classList.toggle('active-drawing-button');
+    button.classList.toggle('active-draw-button');
     if (lastActiveDrawingButton !== null) {
         lastActiveDrawingButton.classList.toggle('active-draw-button');
     }
@@ -129,7 +127,6 @@ function init_buttons() {
     drawButton.addEventListener("click", (e) => { setDrawingButton(e.target) });
     eraseButton.addEventListener("click", (e) => { setDrawingButton(e.target) });
 
-    console.log('help');
     setDrawingButton(drawButton);
 }
 
